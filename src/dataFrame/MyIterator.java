@@ -8,11 +8,18 @@ import java.util.Iterator;
  */
 public class MyIterator extends DataFrame implements Iterator<ArrayList<String>> {
 
+    /**
+     * Variables of the class
+     */
     protected int pos;
+    /**
+     * Boolean that says if it can be removed
+     */
     boolean canRemove = false;
 
     /**
      * Constructor
+     * @param info of the dataFrame
      */
     public MyIterator(DataFrame info) {
         super(info);
@@ -24,17 +31,17 @@ public class MyIterator extends DataFrame implements Iterator<ArrayList<String>>
      * @return true or false
      */
     public boolean hasNext() {
-        return pos < data.size();
-    }
+            return pos < data.size();
+        }
 
     /**
      * Method next
-     * @return the next in the line
+      * @return the next in the line
      */
     public ArrayList<String> next() {
-        pos++;
-        canRemove = true;
-        return data.get((String) data.keySet().toArray()[pos - 1]);
+         pos++;
+         canRemove = true;
+         return data.get((String) data.keySet().toArray()[pos - 1]);
     }
 
     /**

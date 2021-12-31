@@ -1,19 +1,22 @@
 package dataFrame;
 
-import composite.Composite;
-import visitor.Visitor;
-
+import java.lang.Iterable;
 import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 /**
- * Class implements the principal methods for the DataFrame.DataFrame
+ * Class implements the principal methods for the DataFrame
  */
-public class DataFrame implements Iterable<ArrayList<String>>, Composite {
+public class DataFrame implements DataFrameInterface,Iterable<ArrayList<String>> {
+    /**
+     * Variables name for the dataFrame
+     */
     private final String name;
+    /**
+     * Variable data for the dataFrame
+     */
     public LinkedHashMap<String, ArrayList<String>> data;
-    private Composite dad;
 
     /**
      * Constructor when it's read from file
@@ -34,7 +37,6 @@ public class DataFrame implements Iterable<ArrayList<String>>, Composite {
     public DataFrame(DataFrame info) {
         this.data = info.data;
         this.name = info.name;
-        this.dad = info.getDad();
     }
 
     /**
@@ -88,22 +90,12 @@ public class DataFrame implements Iterable<ArrayList<String>>, Composite {
     }
 
     /**
-     * the size of the DataFrame.DataFrame
+     * the size of the DataFrame
      *
      * @return the size
      */
     public int size() {
         return this.data.get((String) this.data.keySet().toArray()[0]).size();
-    }
-
-    @Override
-    public void setParent(Composite parent) {
-        this.dad = parent;
-    }
-
-
-    public Composite getDad() {
-        return this.dad;
     }
 
     /**
@@ -129,7 +121,7 @@ public class DataFrame implements Iterable<ArrayList<String>>, Composite {
     }
 
     /**
-     * Method sort return the values of a column in the DataFrame.DataFrame following a certain order
+     * Method sort return the values of a column in the DataFrame following a certain order
      *
      * @param label      column
      * @param comparator how to sort
@@ -303,10 +295,4 @@ public class DataFrame implements Iterable<ArrayList<String>>, Composite {
     public Iterator<ArrayList<String>> iterator() {
         return new MyIterator(this);
     }
-
-    public void accept(Visitor v) {
-        v.visit(this);
-    }
-
-
 }

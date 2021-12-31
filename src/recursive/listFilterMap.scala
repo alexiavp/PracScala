@@ -3,9 +3,20 @@ package recursive
 import java.util
 import scala.jdk.CollectionConverters._
 
+/**
+ * Class that that filters the elements in a list based on a given condition
+ * and applies an operation to those that fulfill it.
+ */
 class listFilterMap {
 
-
+  /**
+   * Method implemented with stack recursion
+   * @param condition to apply
+   * @param operation to apply
+   * @param collection to apply
+   * @tparam A generic type
+   * @return info filtered
+   */
   def stack[A](condition: A => Boolean, operation: A => A, collection: java.util.List[A]): List[A] = {
     collection.asScala.toList match {
       case Nil => Nil
@@ -13,6 +24,14 @@ class listFilterMap {
     }
   }
 
+  /**
+   * Method implemented with tail recursion
+   * @param condition to apply
+   * @param operation to apply
+   * @param collection to apply
+   * @tparam A generic type
+   * @return info filtered
+   */
   def tail[A](condition: A => Boolean, operation: A => A, collection: java.util.List[A], result: List[A]): List[A] = {
     collection.asScala.toList match {
       case Nil => result.reverse
