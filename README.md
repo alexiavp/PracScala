@@ -1,4 +1,5 @@
-PracScala: Second practice of programming advanced techniques (TAP) in the University Rovira i Virgili
+#PracScala: Second practice of programming advanced techniques (TAP)
+in the University Rovira i Virgili
 Authors: Jordi Llatser and Alexia Vidal
 
 Packages:
