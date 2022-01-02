@@ -11,3 +11,7 @@ Packages:
 6. Test: examples to prove how all the features implemented work correctly
 
 Some examples of files to help test the methods
+
+----------------------------------------------------------------------------------------------------------------------
+https://github.com/alexiavp/PracScala.git
+----------------------------------------------------------------------------------------------------------------------
